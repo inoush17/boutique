@@ -20,61 +20,57 @@
         <h3>Bienvenue sur notre page web {{ Auth::user()->name }}</h3>
     </div>
 
-    <div>
-        <div class="col-12 mt-5">
+    <div>   
+        <div>
             <h1>Liste des Utilisateurs</h1>
         </div>
-    </div>
 
-    <a href="{{ route('user.show') }}" class="button-b">Création d'utilisateur</a>
-    <br><br>
+        <a href="{{ route('user.show') }}" class="button-b">Création d'utilisateur</a>
+        <br><br>
 
-    <div class="body">
-        @if ($message = Session::get('success'))
-        <div class="alert alert-success" role="alert">
-            {{$message}}
-        </div>
-        @endif
+        <div>
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ $message }}
+                </div>
+            @endif
 
+            <div class="body">
+                <div>
+                    <table width="100%">
+                        <thead>
+                            <tr width="100%">
+                                <th>
+                                    #[id]
+                                </th>
+                                <th>
+                                    Pseaudo
+                                </th>
+                                <th>
+                                    Email
+                                </th>
+                                <th>
+                                    Opérations
+                                </th>
+                            </tr>
+                        </thead>
 
-        @if(Auth::user()->is_admin)
-
-            <div>
-                @foreach ($users as $user)
-                    <div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>#[id]</th>
-                                    <th>Pseaudo</th>
-                                    <th>Email</th>
-                                    <th>Opérations</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>{{ $user->id }}</th>
-                                    <th>{{ $user->name }}</th>
-                                    <th>{{ $user->email }}</th>
-                                    <th>
+                        <tbody>
+                            @foreach ($users as $user)
+                                <tr width="100%">
+                                    <td>{{ $user->id }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td class="operation">
                                         <a href= "{{ route('user.edit', $user->id) }}" class="button-operation1">Modifier</a>
                                         <a href="{{ route('user.destroy', $user->id) }}" class="button-operation2">Supprimer</a>
-                                    </th>
+                                    </td>
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                @endforeach
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            
-        @else
-
-        <h3>
-            Bienvenu utilisateur lambda.
-        </h3>
-            
-
-        @endif
-
+        </div>
     </div>
 @endsection

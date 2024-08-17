@@ -2,9 +2,6 @@
 
 namespace App\repositories;
 
-use App\Models\OtpCode;
-use App\Mail\OtpCodeEmail;
-use App\Models\User;
 use App\Interfaces\AuthenticationInterface;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

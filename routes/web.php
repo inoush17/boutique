@@ -17,7 +17,7 @@ Route::get('/login', [ViewController::class, 'login'])->name('login');
 Route::get('/logout', [ViewController::class, 'logout'])->name('logout');
 
 
-// Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name("user.list");
+
 
 Route::get('/users/show', [ViewController::class, 'show'])->name("user.show");
 

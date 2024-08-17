@@ -35,7 +35,7 @@ class UserController extends Controller
         $user->name = $request->input("name");
         $user->email = $request->input("email");
         $user->save();
-        return redirect()->route("users.list");
+        return redirect()->route("users.show");
     }
 
     /**
@@ -63,9 +63,10 @@ class UserController extends Controller
     public function update(Request $request, User $id)
     {
         $user = User::find($id);
-        $user->name = $request->name;
-        $user->save();
-        return redirect()->route("users.list");
+        $user->get(0)->name = $request->name;
+        $user->get(0)->update();
+        return redirect()->route("dashboard");
+        
     }
 
     /**

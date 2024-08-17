@@ -1,3 +1,4 @@
+
 .app-bar a{
     text-decoration: none;
     background-color: rgba(245, 245, 220, 0.421);
@@ -12,17 +13,42 @@
 }
 
 .body{
-    background-color: rgb(55, 74, 16);
+    background-color: white;
+    color: black;
+    border: rgba(0, 0, 0, 0.695) solid 3px;
+    border-radius: 5px;
+    width: 80%;
+    height: fit-content !important;
+    text-align: center;
+}
+
+.body table tbody tr {
+    height: 50px;
+}
+
+.operation{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: ;
+    justify-content: flex-end;
+    align-items: right;
+    gap: 10px;
+    padding: 5px;
+}
+
+/* .body table tbody td {
+    padding-left: 80px;
+    border-right: #111;
+} */
+
+.body table thead th {
+    height: 50px;
+    background-color: azure;
+    border-bottom: 1px solid #111;
+    padding: 0 10px;
 }
 
 .button-b{
-    background-color: rgb(55, 74, 16);
-    color: black;
+    background-color: black;
+    color: white;
     text-decoration: none;
     padding: 8px;
     border: black solid 2px;
@@ -54,13 +80,17 @@
 }
 
 .container{
-    background-color: rgba(0, 0, 0, 0.456);
+    background-color: white;
     border-radius: 10px;
+    border: black solid 1px;
     width: 40%;
-    height: 70%;
+    height: 40%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    margin-left: 35%;
+    margin-top: 13%;
 }
 
 .paragraphe{
@@ -78,24 +108,14 @@
     text-align: center;
 }
 
-.container a{
-    color: blue;
-    font-size: 16px;
-    text-decoration: none;
-}
-
 
 .container input{
     width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.77);
-    color: black;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: rgba(0, 0, 0, 0.797);
+    color: white;
     border: white solid 1px;
-}
-
-.container label{
-    color: beige;
 }
 
 .button{
