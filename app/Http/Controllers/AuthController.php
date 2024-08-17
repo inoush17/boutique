@@ -25,14 +25,28 @@ class AuthController extends Controller
         ];
 
         try {
-            if($this->authInterface->login($data))
-            return redirect()->route('dashboard');
-        else
+            if($this->authInterface->login($data)){
+
+                $admin = User::where('email', $request->email)->first();
+
+                if ($admin->is_admin == 1) {
+
+                    return redirect()->route('adminhome');   
+                }
+
+                return redirect()->route('dashboard');   
+
+            }
+            else
             return back()->with('error', 'Email ou mot de passe incorrect(s).');
 
         } catch (\Exception $ex) {
             return back()->with('error', 'Une erreur est survenue lors du traitement, Réessayez !');
         }
+
+
+            
+    
     }
 
 

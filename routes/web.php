@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [UserController::class, 'index'])->name('dashboard');
+
+    Route::get('/admins/adminhome', [UserController::class, 'toDashboard'])->name('adminhome');
 });
 
 Route::post('/login', [AuthController::class, 'login'])->name('login.auth');
@@ -15,7 +17,6 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.auth');
 Route::get('/', [ViewController::class, 'login'])->name('login');
 Route::get('/login', [ViewController::class, 'login'])->name('login');
 Route::get('/logout', [ViewController::class, 'logout'])->name('logout');
-
 
 
 

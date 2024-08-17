@@ -14,8 +14,21 @@ class UserController extends Controller
     {
         $users = User::all();
         return view("dashboard", [
-            "users"=> $users
+            "users" => $users
         ]);
+    }
+
+
+    public function toDashboard()
+    {
+        $users = User::all();
+
+        return view(
+            'admins.adminhome',
+            [
+                'users' => $users
+            ]
+        );
     }
 
     /**
@@ -52,8 +65,8 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view("users.edit" , [
-            "user"=> $user
+        return view("users.edit", [
+            "user" => $user
         ]);
     }
 
@@ -66,7 +79,6 @@ class UserController extends Controller
         $user->get(0)->name = $request->name;
         $user->get(0)->update();
         return redirect()->route("dashboard");
-        
     }
 
     /**
@@ -76,6 +88,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return back()->with("success","utilisateur supprimé avec succès");
+        return back()->with("success", "utilisateur supprimé avec succès");
     }
 }
